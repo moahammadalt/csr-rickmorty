@@ -7,15 +7,15 @@ function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const char = await getCharacter();
-      setCharData(char.results);
+      const char = await getCharacter([ 1, 2, 3, 5 ]);
+      setCharData(char);
     }
     fetchData();
   }, []);
 
   return (
     <div style={{ backgroundColor: 'aquamarine' }}>
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'center', paddingTop: '20px' }}>
         <h1>Client Side Rendering</h1>
         <Link to="/about">
           <h3>go to another page</h3>
@@ -23,11 +23,11 @@ function Home() {
       </div>
 
       <div
-        style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}
+        style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', height: '100vh' }}
       >
         {charData.map(char => (
           <div key={char.id} style={{ margin: '25px' }}>
-            <h4>{char.name}</h4>
+            <h4>{char.name} - {char.species}</h4>
             <img src={char.image} />
           </div>
         ))}
