@@ -14,7 +14,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div style={{ backgroundColor: 'aquamarine' }}>
       <div style={{ textAlign: 'center' }}>
         <h1>Client Side Rendering</h1>
         <Link to="/about">
